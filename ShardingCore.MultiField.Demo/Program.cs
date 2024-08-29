@@ -28,6 +28,7 @@ public class Program
             )
             .UseConfig(options =>
             {
+                options.CheckShardingKeyValueGenerated = false;
                 options.AddDefaultDataSource("Default", builder.Configuration.GetConnectionString("Default"));
                 options.UseShardingQuery((s, optionsBuilder) =>
                 {
