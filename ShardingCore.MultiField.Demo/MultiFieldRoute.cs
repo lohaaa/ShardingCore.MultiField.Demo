@@ -78,6 +78,24 @@ public class MultiFieldRoute : AbstractShardingOperatorVirtualTableRoute<Player,
 
     public override Func<string, bool> GetRouteToFilter(string shardingKey, ShardingOperatorEnum shardingOperator)
     {
+//         var t = ShardingKeyToTail(shardingKey);
+//         if (!GetTails().Exists(x => x == t))
+//         {
+//             _tableCreator.CreateTable<Player>(_virtualDataSource.DefaultDataSourceName, t);
+//             Tails.TryAdd(t, null);
+//         }
+//
+//         switch (shardingOperator)
+//         {
+//             case ShardingOperatorEnum.Equal: return tail => tail == t;
+//             default:
+//             {
+// #if DEBUG
+//                 _logger.LogWarning("shardingOperator is not equal scan all table tail");
+// #endif
+//                 return _ => true;
+//             }
+//         }
         return tail => true;
     }
 
